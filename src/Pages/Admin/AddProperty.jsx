@@ -34,7 +34,7 @@ function AddProperty() {
     try {
       const token = localStorage.getItem('token')
 
-const response = awaitfetch(`${import.meta.env.VITE_API_URL}/api/v1/property`,
+const response = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/property`,
    {
     method: 'POST',
     headers: 
