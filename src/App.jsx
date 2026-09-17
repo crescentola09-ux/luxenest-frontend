@@ -57,7 +57,7 @@ function App() {
         <Route path="/users" element={<AdminRoute><Users />
             </AdminRoute> } />
 
-        <Route element={<AdminRoute><UserDetails /></AdminRoute>} />
+        <Route path='/users/:id' element={<AdminRoute><UserDetails /></AdminRoute>} />
 
         <Route  path="/settings" element={ <AdminRoute> <Settings /> </AdminRoute>} />
 

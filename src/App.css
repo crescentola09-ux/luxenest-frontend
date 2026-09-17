@@ -4945,94 +4945,103 @@ main {
 
 /* =========================================
    TABLET
-========================================= */
+   ========================================= */
 
-@media (max-width: 1100px) {
-  .users-page {
-    margin-left: 220px;
-    padding: 32px 28px 50px;
-  }
+@media (max-width: 900px) {
 
-  .users-summary {
-    grid-template-columns: repeat(3, 1fr);
-  }
+    .users-page {
+        margin-left: 220px;
+        width: calc(100% - 220px);
+        padding: 30px;
+    }
+
+    .users-summary {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .users-filter-area {
+        flex-wrap: wrap;
+    }
+
 }
+
 
 /* =========================================
    MOBILE
-========================================= */
+   ========================================= */
 
 @media (max-width: 700px) {
-  .users-page {
-    margin-left: 70px;
-    padding: 25px 18px 40px;
-  }
 
-  .users-header h1 {
-    font-size: 27px;
-  }
-
-  .users-header > p:last-child {
-    font-size: 12px;
-    line-height: 1.5;
-  }
-
-  .users-summary {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  .users-summary-card {
-    min-height: 85px;
-    padding: 18px;
-  }
-
-  .users-filter-area {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .users-filter-area input,
-  .users-filter-area select {
-    width: 100%;
+   .users-page {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    padding: 40px;
     box-sizing: border-box;
-  }
-
-  .users-table-container {
-    border-radius: 10px;
-  }
 }
+
+
+/* TABLE */
+
+.users-table-container {
+    width: 100%;
+    overflow-x: auto;
+    box-sizing: border-box;
+}
+
+.users-table {
+    width: 100%;
+    min-width: 780px;
+}
+
+}
+
 
 /* =========================================
    SMALL MOBILE
-========================================= */
+   ========================================= */
 
 @media (max-width: 480px) {
-  .users-page {
-    margin-left: 60px;
-    padding: 22px 13px 35px;
-  }
 
-  .users-header {
-    margin-bottom: 22px;
-  }
+    .users-page {
+        margin-left: 60px;
+        width: calc(100% - 60px);
+        padding: 20px 15px;
+    }
 
-  .users-header h1 {
-    font-size: 24px;
-  }
+    .users-header h1 {
+        font-size: 25px;
+    }
 
-  .users-summary-card h2 {
-    font-size: 23px;
-  }
+    .users-header p {
+        font-size: 13px;
+        line-height: 1.6;
+    }
 
-  .users-filter-area {
-    padding: 13px;
-  }
+    .users-summary {
+        gap: 12px;
+    }
 
-  .users-table th,
-  .users-table td {
-    padding: 13px 14px;
-  }
+    .users-summary-card {
+        padding: 18px;
+    }
+
+    .users-summary-card h2 {
+        font-size: 24px;
+    }
+
+    .users-filter-area {
+        padding: 14px;
+    }
+
+    .users-table {
+        min-width: 780px;
+    }
+
+    .users-table th,
+    .users-table td {
+        padding: 12px 14px;
+    }
+
 }
 
 
