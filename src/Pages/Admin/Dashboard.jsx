@@ -19,11 +19,18 @@ function Dashboard() {
   const [loading, setLoading] = useState(true)
 
   async function fetchDashboardData() {
+   
     setLoading(true)
+     const token = localStorage.getItem('token')
+
+    //  console.log('API URL:', import.meta.env.VITE_API_URL)
+      // console.log('TOKEN EXISTS:', !!token)
 
     try {
       const propertyResponse = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/property`)
 
+      // console.log('PROPERTY URL:', propertyResponse.url)
+      // console.log('PROPERTY STATUS:', propertyResponse.status)
       const propertyData = await propertyResponse.json()
 
       if (!propertyResponse.ok) {
@@ -34,8 +41,17 @@ function Dashboard() {
 
       setProperties(propertyData.properties || [])
 
-      const inquiryResponse = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/inquiry`)
+         const inquiryResponse = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/inquiry`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+         'Content-Type': 'application/json'
+        }
+      }
+    )
 
+    console.log('INQUIRY URL:', inquiryResponse.url)
+    console.log('INQUIRY STATUS:', inquiryResponse.status)
       const inquiryData = await inquiryResponse.json()
 
       if (!inquiryResponse.ok) {

@@ -1,4 +1,4 @@
-import './App.css';
+import './App.css'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 
 import Home from './Pages/Home'
@@ -25,34 +25,48 @@ import ProtectRoute from './Components/ProtectRoute'
 function App() {
   return (
     <BrowserRouter>
-      {/* <Navbar/> */}
+
       <Routes>
 
+        {/* Public pages */}
         <Route path="/" element={<Home />} />
-        <Route path="/properties" element={<ProtectRoute><Properties /></ProtectRoute>} />
-        <Route path="/properties/:id" element={ <ProtectRoute><PropertyDetails /></ProtectRoute>} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/dashboard" element={ <AdminRoute> <Dashboard /> </AdminRoute>}/>       
-         <Route path="/add-property" element={ <AdminRoute>  <AddProperty /> </AdminRoute> }/>
-        <Route path="/admin/properties"  element={<AdminRoute><AdminProperties /> </AdminRoute> }/>
-        <Route path="/admin/properties/edit/:id" element={<AdminRoute><EditProperty /></AdminRoute>} />
+        <Route path="/about" element={<About />} />
+
+        {/* Logged-in user pages */}
+        <Route path="/properties" element={ <ProtectRoute><Properties /></ProtectRoute>  } />
+
+        <Route path="/properties/:id" element={ <ProtectRoute><PropertyDetails /></ProtectRoute> } />
+
+        <Route path="/contact" element={<ProtectRoute><Contact /></ProtectRoute>} />
+
+        {/* Admin pages */}
+        <Route  path="/dashboard" element={ <AdminRoute> <Dashboard /></AdminRoute> } />
+
+        <Route path="/add-property" element={<AdminRoute><AddProperty /></AdminRoute>} />
+
+        <Route path="/admin/properties" element={ <AdminRoute><AdminProperties /></AdminRoute> } />
+
+        <Route path="/admin/properties/edit/:id"  element={<AdminRoute><EditProperty /></AdminRoute>}/>
+
+        <Route path="/admin/properties/:id" element={<AdminRoute><AdminPropertyDetails /></AdminRoute>} />
+
+        <Route  path="/inquiries" element={<AdminRoute><Inquiries /></AdminRoute>} />
+
+        <Route path="/users" element={<AdminRoute><Users />
+            </AdminRoute> } />
+
+        <Route element={<AdminRoute><UserDetails /></AdminRoute>} />
+
+        <Route  path="/settings" element={ <AdminRoute> <Settings /> </AdminRoute>} />
+
+        {/* Unknown route */}
         <Route path="*" element={<Navigate to="/" replace />} />
-        <Route path="/admin/properties/:id" element={<AdminRoute><AdminPropertyDetails /></AdminRoute>}/>
-        <Route path="/inquiries" element={<AdminRoute><Inquiries /></AdminRoute>}/>
-        <Route path="/users" element={<AdminRoute><Users /></AdminRoute>}/>
-        <Route path="/users/:id" element={<AdminRoute><UserDetails /></AdminRoute>}/>
-      <Route path="/settings" element={<AdminRoute><Settings /></AdminRoute>}/>
-      <Route path="/about" element={<About />} />
-      <Route path="/contact" element={<ProtectRoute><Contact /></ProtectRoute>} />
-      {/* <Route path="/faq" element={<FAQ />} /> */}
-      {/* <Route path="/terms" element={<Terms />} /> */}
-      {/* <Route path="/privacy" element={<Privacy />} /> */}
-       </Routes>
+
+      </Routes>
 
     </BrowserRouter>
-  
-  
   )
 }
 

@@ -25,13 +25,11 @@ const [propertyType, setPropertyType] = useState('')
   }, [])
 
   const filteredProperties = properties.filter((property) => {
-  const matchesSearch = property.location
-    .toLowerCase()
-    .includes(search.toLowerCase())
+    const searchText = search.toLowerCase()
+  const matchesSearch = property.title?.toLowerCase().includes(searchText) || property.location?.toLowerCase().includes(searchText) || property.propertyType?.toLowerCase().includes(searchText)
 
   const matchesType =
-    propertyType === '' ||
-    property.propertyType.toLowerCase() === propertyType.toLowerCase()
+    propertyType === '' || property.propertyType?.toLowerCase() === propertyType.toLowerCase()
 
   return matchesSearch && matchesType
 })
@@ -100,7 +98,7 @@ const [propertyType, setPropertyType] = useState('')
                             </span> </div>
 
                   <div className="property-features">
-                    <span> <BedDouble size={16} />{property.bedrooms} Beds</span>
+                    <span> <BedDouble size={16} />{property.bedrooms || 0} Beds</span>
                     <span><Bath size={16} /> {property.bathrooms} Baths</span>
                   </div>
 

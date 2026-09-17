@@ -11,11 +11,12 @@ function Login() {
 
   async function handleSubmit(event) {
     event.preventDefault()
+    // console.log('API URL:', import.meta.env.VITE_API_URL)
 
     setLoading(true)
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/auth/login`,
+      const response = await fetch( `${import.meta.env.VITE_API_URL}/api/v1/auth/login`,
          {
           method: 'POST',
           headers: {

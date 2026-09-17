@@ -69,6 +69,12 @@ function handleLogout() {
 
       <div className="sidebar-bottom">
 
+         <button className="logout-btn"
+          onClick={() => navigate('/properties')}
+        >
+          View Website
+        </button>
+        
         <button type="button" className="logout-btn" onClick={handleLogout}>
           <LogOut size={19} />
           <span>Logout</span>
